@@ -28,7 +28,7 @@ The backend client must be registered on the SSO server. Upon registration, you 
 
 **Request**
 
-```http request
+```
 POST /oauth/token
 ```
 
@@ -60,7 +60,7 @@ The frontend application must be registered with the SSO server. Upon registrati
 
 **1 Redirect the user to the SSO frontend:**
 
-```http request
+```
 GET sso.medcore.uz
 ```
 
@@ -83,10 +83,20 @@ This exchange must be done on the backend to protect the `client_secret`. If you
 
 Include the access token in each request:
 
-```http request
+```
 Authorization: Bearer <access_token>
 ```
 
 # Error handling
 
 *\<to be filled in - describe error handling here\>*
+
+# Must Support
+[Must Support] in this implementation guide is used in two contexts:
+
+1. UZ Core profiles: indicates that the element is expected to be populated when exchanged by systems within Uzbekistan.
+2. DHP-specific profiles: indicates that the DHP supports the element, and client systems must populate it with data should it be available.
+
+In case an element cannot be populated because it is not available in the source system, if the cardinality rules allow it, the element can be left unfilled. In case the cardinality rules require an element to be populated, the [Data Absent Reason] extension SHALL be used.
+
+{% include markdown-link-references.md %}
