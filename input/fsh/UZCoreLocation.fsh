@@ -63,9 +63,9 @@ Usage: #example
       * valueString = "Республиканский онкологический центр"
   * extension[translation][+]
     * extension[lang][0]
-      * valueCode = #en
+      * valueCode = #kaa
     * extension[content][+]
-      * valueString = "Republican Oncology Center"
+      * valueString = "Respublika onkologiya orayı"
 * type.coding[type] = $v3-RoleCode#ONCL
 * address
   * type = #postal
@@ -90,9 +90,9 @@ Usage: #example
       * valueString = "Отделение онкомаммологии №1"
   * extension[translation][+]
     * extension[lang][0]
-      * valueCode = #en
+      * valueCode = #kaa
     * extension[content][+]
-      * valueString = "Oncomammology Department No. 1"
+      * valueString = "Onkomammologiya bólimi №1"
 * identifier[unit]
   * type = LocationKindsCS#Branch "Bo'limi"
   * value = "1"

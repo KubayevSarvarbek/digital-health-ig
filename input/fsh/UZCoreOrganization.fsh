@@ -123,9 +123,9 @@ Usage: #example
       * valueString = "Республиканский онкологический центр"
   * extension[translation][+]
     * extension[lang][0]
-      * valueCode = #en
+      * valueCode = #kaa
     * extension[content][+]
-      * valueString = "Republican Oncology Center"
+      * valueString = "Respublika onkologiya orayı"
 
 Instance: tashkent-diseases-hospital
 InstanceOf: UZCoreOrganization
@@ -151,9 +151,9 @@ Usage: #example
       * valueString = "Ташкентская областная инфекционная больница"
   * extension[translation][+]
     * extension[lang][0]
-      * valueCode = #en
+      * valueCode = #kaa
     * extension[content][+]
-      * valueString = "Tashkent Region Infectious Diseases Hospital"
+      * valueString = "Tashkent wálayat juqpalı kesellikler emlewxanası"
 * type
   * coding[0] = $organization-type-cs#prov "Healthcare Provider"
   * coding[+] = organizational-subordination-group-cs#I_2 "Hududiy boshqaruv tarkibidagi"
