@@ -26,9 +26,11 @@ Description: "Uzbekistan Core Patient profile, used to represent patients admini
     healthCardId 0..1 MS and
     militaryId 0..1 MS and
     // socialSecurity 0..1 MS and
-    penitentiaryInstitution 0..1 MS
+    penitentiaryInstitution 0..1 MS and
+    medicalRecordTemp 0..* MS and
+    unknownPatient 0..1 MS
 
-* identifier[passportLocal] 
+* identifier[passportLocal]
   * system 1..1 MS
   * system = $passport-local
   * type 1..1 MS
@@ -100,6 +102,26 @@ Description: "Uzbekistan Core Patient profile, used to represent patients admini
   * use = #official
   * value 1..1 MS
 
+* identifier[medicalRecordTemp]
+  * ^short = "Temporary medical record number assigned by organization"
+  * ^definition = "Organization-specific temporary medical record identifier. Each organization uses its tax ID (Soliq) to create a unique namespace. System URI pattern: https://dhp.uz/fhir/core/sid/pid/uz/prn/{soliq-id}/mrt where {soliq-id} is replaced with the organization's tax identification number."
+  * system 1..1 MS
+  * system = $temp-medical-record-pattern
+  * type 1..1 MS
+  * type = $identifier-type#MRT "Temporary Medical Record Number"
+  * use = #temp
+  * value 1..1 MS
+
+* identifier[unknownPatient]
+  * ^short = "Unknown patient code (fallback when organization ID unavailable)"
+  * ^definition = "Identifier for unknown patients when identity cannot be immediately established and the organization's tax ID is not available. This is a fallback; prefer using organization-scoped temporary medical record numbers when possible."
+  * system 1..1 MS
+  * system = $unknownpatient
+  * type 1..1 MS
+  * type = $identifier-type#MR "Medical record number"
+  * use = #temp
+  * value 1..1 MS
+
 * extension contains patient-nationality named nationality 0..1 MS and
     patient-citizenship named citizenship 0..1 MS
 * extension[nationality].extension[code].valueCodeableConcept from NationalityVS (required)
@@ -111,7 +133,7 @@ Description: "Uzbekistan Core Patient profile, used to represent patients admini
 * maritalStatus from MaritalStatusVS (required)
 * insert HumanName
 * active MS
-* birthDate MS 
+* birthDate MS
 
 Instance: example-salim
 InstanceOf: UZCorePatient
