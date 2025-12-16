@@ -66,6 +66,7 @@ dependencies:
 parameters:
   special-url-base: https://terminology.dhp.uz/fhir/core
   excludettl: true
+  excludexml: true
   # shownav: true
 
   pin-canonicals: pin-all
@@ -97,6 +98,7 @@ menu:
   Home: index.html
   Guidance:
     FHIR basics: fhir-basics.html
+    Identifiers: identifiers.html
     Vital signs: vital-signs.html
   API access: api-access.html
   Artifacts: artifacts.html
@@ -159,6 +161,10 @@ menu:
 #     description: An example Patient
 #     exampleBoolean: true
 #   Patient/bad-example: omit
+
+resources:
+  CapabilityStatement/DHPCapabilityStatement:
+    description: DHP platform capability statement, describing the supported resources, profiles, and searchparameters
 #
 #
 # Groups can control certain aspects of the IG generation.  The IG

@@ -20,15 +20,19 @@ Description: "Uzbekistan Core Patient profile, used to represent patients admini
 * identifier contains nationalId 0..1 MS and
     passportLocal 0..1 MS and
     passportInternational 0..1 MS and
+    passportForeign 0..1 MS and
     birthCertificate 0..1 MS and
     driversLicense 0..1 MS and
+    driversLicenseForeign 0..1 MS and
     diplomaticPassport 0..1 MS and
     healthCardId 0..1 MS and
     militaryId 0..1 MS and
     // socialSecurity 0..1 MS and
-    penitentiaryInstitution 0..1 MS
+    penitentiaryInstitution 0..1 MS and
+    medicalRecordTemp 0..* MS and
+    unknownPatient 0..1 MS
 
-* identifier[passportLocal] 
+* identifier[passportLocal]
   * system 1..1 MS
   * system = $passport-local
   * type 1..1 MS
@@ -39,6 +43,16 @@ Description: "Uzbekistan Core Patient profile, used to represent patients admini
 * identifier[passportInternational]
   * system 1..1 MS
   * system = $passport-international
+  * type 1..1 MS
+  * type = $identifier-type#PPN "Passport number"
+  * use = #official
+  * value 1..1 MS
+
+* identifier[passportForeign]
+  * ^short = "Foreign passport number"
+  * ^definition = "Passport identifier for foreign nationals. System URI pattern: https://dhp.uz/fhir/core/sid/pid/{country-code}/ppn where {country-code} is the ISO 3166-1 two-letter country code (e.g., 'ee' for Estonia, 'ru' for Russia)."
+  * system 1..1 MS
+  * system from ForeignPassportSystemVS (required)
   * type 1..1 MS
   * type = $identifier-type#PPN "Passport number"
   * use = #official
@@ -63,6 +77,16 @@ Description: "Uzbekistan Core Patient profile, used to represent patients admini
 * identifier[driversLicense]
   * system 1..1 MS
   * system = $driverslicense
+  * type 1..1 MS
+  * type = $identifier-type#DL "Driver's license number"
+  * use = #official
+  * value 1..1 MS
+
+* identifier[driversLicenseForeign]
+  * ^short = "Foreign driver's license number"
+  * ^definition = "Driver's license identifier for foreign nationals. System URI pattern: https://dhp.uz/fhir/core/sid/pid/{country-code}/dl where {country-code} is the ISO 3166-1 two-letter country code (e.g., 'ee' for Estonia, 'ru' for Russia)."
+  * system 1..1 MS
+  * system from ForeignDriversLicenseSystemVS (required)
   * type 1..1 MS
   * type = $identifier-type#DL "Driver's license number"
   * use = #official
@@ -100,10 +124,31 @@ Description: "Uzbekistan Core Patient profile, used to represent patients admini
   * use = #official
   * value 1..1 MS
 
+* identifier[medicalRecordTemp]
+  * ^short = "Temporary medical record number assigned by organization"
+  * ^definition = "Organization-specific temporary medical record identifier. Each organization uses its tax ID (Soliq) to create a unique namespace. System URI pattern: https://dhp.uz/fhir/core/sid/pid/uz/prn/{soliq-id}/mrt where {soliq-id} is replaced with the organization's tax identification number."
+  * system 1..1 MS
+  * system = $temp-medical-record-pattern
+  * type 1..1 MS
+  * type = $identifier-type#MRT "Temporary Medical Record Number"
+  * use = #temp
+  * value 1..1 MS
+
+* identifier[unknownPatient]
+  * ^short = "Unknown patient code (fallback when organization ID unavailable)"
+  * ^definition = "Identifier for unknown patients when identity cannot be immediately established and the organization's tax ID is not available. This is a fallback; prefer using organization-scoped temporary medical record numbers when possible."
+  * system 1..1 MS
+  * system = $unknownpatient
+  * type 1..1 MS
+  * type = $identifier-type#MR "Medical record number"
+  * use = #temp
+  * value 1..1 MS
+
 * extension contains patient-nationality named nationality 0..1 MS and
-    patient-citizenship named citizenship 0..1 MS
+    patient-citizenship named citizenship 0..1 MS and
+    ManagingOrganizationAttachment named managingOrganizationAttachment 0..1 MS
 * extension[nationality].extension[code].valueCodeableConcept from NationalityVS (required)
-* extension[citizenship].extension[code].valueCodeableConcept from CountriesDigitalMVDVS (required)
+* extension[citizenship].extension[code].valueCodeableConcept from ISO3166_2 (required)
 * gender MS
   * extension contains GenderOtherUZ named gender-other 0..1 MS
 * obeys uzcore-gender-other-2
@@ -111,7 +156,7 @@ Description: "Uzbekistan Core Patient profile, used to represent patients admini
 * maritalStatus from MaritalStatusVS (required)
 * insert HumanName
 * active MS
-* birthDate MS 
+* birthDate MS
 
 Instance: example-salim
 InstanceOf: UZCorePatient
@@ -164,6 +209,7 @@ Usage: #example
   * gender = #male
 * maritalStatus = $v3-MaritalStatus#W "Вдовец, вдова"
 * extension[nationality].extension[code].valueCodeableConcept = NationalityCS#23 "Азербайджанцы"
+* extension[managingOrganizationAttachment].valueDate = "2024-03-15"
 
 Instance: example-david
 InstanceOf: UZCorePatient
@@ -202,11 +248,15 @@ Usage: #example
 
 Instance: example-emma
 InstanceOf: UZCorePatient
-Description: "Example of a patient named Emma"
+Description: "Example of a foreign patient named Emma"
 Usage: #example
 * language = #en
-* identifier[driversLicense]
-  * value = "AG1141110"
+* identifier[passportForeign]
+  * system = "https://dhp.uz/fhir/core/sid/pid/gb/ppn"
+  * value = "533401572"
+* identifier[driversLicenseForeign]
+  * system = "https://dhp.uz/fhir/core/sid/pid/gb/dl"
+  * value = "SANDE805166E99NJ"
 * active = false
 * name
   * use = #anonymous
