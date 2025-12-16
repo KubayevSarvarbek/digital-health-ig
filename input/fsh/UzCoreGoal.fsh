@@ -9,71 +9,71 @@ Description: "Uzbekistan Core Goal profile, used for a patient, group or organiz
 * ^publisher = "Uzinfocom"
 
 * identifier MS
-* identifier ^short = "Внешние идентификатор этой цели (например, номер в базе страховой компании или другой клиники)."
+* identifier ^short = "The external identifier of this goal (for example, the number in the database of an insurance company or another clinic)."
 
 * lifecycleStatus MS
-* lifecycleStatus ^short = "На каком этапе планирования находится цель.
+* lifecycleStatus ^short = "At what stage of planning is the goal.
 
-Варианты: предложена, запланирована, принята, активна (в работе), приостановлена, завершена, отменена, ошибка ввода, отклонена."
+Options: proposed, planned, accepted, active (in progress), suspended, completed, canceled, input error, rejected."
 * lifecycleStatus from GoalStatusVS (required)
 
 * achievementStatus MS
-* achievementStatus ^short = "Оценка прогресса (как идут дела?).
+* achievementStatus ^short = "Assessment of progress (how are things going?).
 
-Варианты: в процессе, улучшается, ухудшается, без изменений, достигнуто, поддерживается, не достигнуто, нет прогресса, недостижимо."
+Options: in progress, improving, deteriorating, unchanged, achieved, maintained, not achieved, no progress, unreachable."
 * achievementStatus from GoalAchievementVS (required)
 
 * category MS
-* category ^short = "Группировка целей по типу.
+* category ^short = "Grouping goals by type.
 
-Примеры: Лечение, диета, поведенческая терапия, уход."
+Examples: Treatment, Diet, Behavioral therapy, Nursing."
 * category from GoalCategoryVS (required)
 
 * continuous MS
-* continuous ^short = "Галочка (Да/Нет). Если «Да», значит, после достижения цели усилия не прекращаются, а требуются постоянно для поддержания результата (например, «поддерживать диету» всю жизнь)."
+* continuous ^short = "Check box (Yes/No). If the answer is Yes, it means that after achieving the goal, efforts do not stop, but are constantly required to maintain the result (for example, «maintain a diet» for life)."
 
 * priority MS
-* priority ^short = "Важность этой цели.
+* priority ^short = "The importance of this goal.
 
-Варианты: высокий, средний, низкий."
+Options: high, medium, low."
 * priority from GoalPriorityVS (required)
 
 * description MS
-* description ^short = "Текст или код, который говорит, в чем именно заключается цель."
+* description ^short = "A text or code that tells you exactly what the goal is."
 * description from GoalDescriptionVS (required)
 
 * subject MS
-* subject ^short = "Тот, для кого эта цель поставлена (Пациент, Группа людей или Организация)."
+* subject ^short = "The person for whom this goal is set (Patient, Group of people or Organization)."
 
 * start[x] MS
-* start[x] ^short = "Когда начинается работа над целью."
+* start[x] ^short = "When the work on the goal begins."
 * start[x] from GoalStartEventVS (required)
 
 * target MS
-* target ^short = "Контейнер для конкретных цифр или условий, к которым стремимся.
+* target ^short = "A container for specific numbers or conditions that we strive for.
 
 + Rule: Goal.target.measure is required if Goal.target.detail is populated."
 * target.measure MS
-* target.measure ^short = "Какой параметр мы отслеживаем? (Код параметра, например, «Вес тела» или «Глюкоза в крови»)."
+* target.measure ^short = "What parameter are we monitoring? (Parameter code, for example, «Body weight» or «Blood glucose»)."
 * target.measure from http://hl7.org/fhir/ValueSet/observation-codes (required)
 * target.detail[x] MS
-* target.detail[x] ^short = "Сама цифра или состояние, которого нужно достичь."
+* target.detail[x] ^short = "The figure itself or the state that needs to be achieved."
 * target.due[x] MS
-* target.due[x] ^short = "Дедлайн для достижения показателя. 
-Может быть:
-• dueDate: Конкретная дата (к 01.01.2024).
-• dueDuration: Длительность (через 2 недели от начала)."
+* target.due[x] ^short = "The deadline for achieving the indicator.
+May be:
+• DueDate: A specific date (by 01.01.2024).
+• dueDuration: Duration (2 weeks after the start)."
 
 * statusDate MS
-* statusDate ^short = "Календарная дата, когда обновился lifecycleStatus."
+* statusDate ^short = "The calendar date when the lifeCycleStatus was updated."
 * statusReason MS
-* statusReason ^short = "Причина текущего статуса."
+* statusReason ^short = "The reason for the current status."
 
 * source MS
-* source ^short = "Кто придумал/поставил эту цель?"
+* source ^short = "Who came up with/set this goal?"
 
 * addresses MS
-* addresses ^short = "Медицинские проблемы, ради которых поставлена цель."
+* addresses ^short = "Medical problems for which the goal is set."
 
 * note MS
-* note ^short = "Комментарии о цели."
+* note ^short = "Comments about the goal."
