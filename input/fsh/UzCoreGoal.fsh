@@ -77,3 +77,30 @@ May be:
 
 * note MS
 * note ^short = "Comments about the goal."
+
+
+Instance: example-goal
+InstanceOf: UZCoreGoal
+Title: "Example Goal"
+Description: "An example goal instance for a patient aiming to manage benign essential hypertension."
+Usage: #example
+* language = #en
+
+* lifecycleStatus = #active "Active"
+* achievementStatus = $goal-achievement#in-progress "In progress"
+
+* category = $goal-category#dietary "Dietary"
+* continuous = true
+
+* priority = $goal-Priority#high-priority "High priority"
+* description = $sct#1201005 "Benign essential hypertension"
+
+* subject = Reference(example-salim)
+* startDate = "2024-01-01"
+* target[0].dueDate = "2024-06-01"
+
+* statusDate = "2024-01-15"
+* statusReason = "The patient started taking medications."
+
+* source = Reference(example-practitioner)
+* note[0].text = "Weekly blood pressure monitoring."
