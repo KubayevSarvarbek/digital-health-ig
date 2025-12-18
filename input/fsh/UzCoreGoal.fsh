@@ -79,7 +79,7 @@ May be:
 * note ^short = "Comments about the goal."
 
 * outcome MS
-* outcome ^short = "What result was achieved regarding this goal? Use concept.text for free-form text."
+* outcome ^short = "What result was achieved regarding this goal? Codes or concept.text may be used."
 
 
 Instance: example-goal
