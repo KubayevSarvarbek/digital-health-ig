@@ -78,6 +78,10 @@ May be:
 * note MS
 * note ^short = "Comments about the goal."
 
+* outcome MS
+* outcome ^short = "What result was achieved regarding this goal?"
+* outcome from GoalOutcomeVS (preferred)
+
 
 Instance: example-goal
 InstanceOf: UZCoreGoal

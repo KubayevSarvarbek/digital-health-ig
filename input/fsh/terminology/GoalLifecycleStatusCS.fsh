@@ -9,7 +9,7 @@ Description: "Code System for Goal Lifecycle Status translations in Uzbek and Ru
   * ^designation[0].language = #ru
   * ^designation[=].value = "Предложена"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "Taklif etilgan"
+  * ^designation[=].value = "Taklif qilingan"
 * #planned
   * ^designation[0].language = #ru
   * ^designation[=].value = "Запланирована"
@@ -29,12 +29,12 @@ Description: "Code System for Goal Lifecycle Status translations in Uzbek and Ru
   * ^designation[0].language = #ru
   * ^designation[=].value = "Приостановлена"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "To‘xtatilgan"
+  * ^designation[=].value = "To'xtatib turilgan"
 * #completed
   * ^designation[0].language = #ru
   * ^designation[=].value = "Завершена"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "Tugatildi"
+  * ^designation[=].value = "Bajarilgan"
 * #cancelled
   * ^designation[0].language = #ru
   * ^designation[=].value = "Отменена"
@@ -44,7 +44,7 @@ Description: "Code System for Goal Lifecycle Status translations in Uzbek and Ru
   * ^designation[0].language = #ru
   * ^designation[=].value = "Введена по ошибке"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "Xato tufayli kiritilgan"
+  * ^designation[=].value = "Xato kiritilgan"
 * #rejected
   * ^designation[0].language = #ru
   * ^designation[=].value = "Отклонена"

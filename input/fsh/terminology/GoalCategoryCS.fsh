@@ -19,7 +19,7 @@ Description: "Code System for Goal Category translations in Uzbek and Russian"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Поведенческий"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "Xulq-atvor oid"
+  * ^designation[=].value = "Xulq-atvorga oid"
 * #nursing
   * ^designation[0].language = #ru
   * ^designation[=].value = "Сестринский уход"
