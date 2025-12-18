@@ -27,7 +27,7 @@ Options: in progress, improving, deteriorating, unchanged, achieved, maintained,
 * category ^short = "Grouping goals by type.
 
 Examples: Treatment, Diet, Behavioral therapy, Nursing."
-* category from GoalCategoryVS (required)
+* category from GoalCategoryVS
 
 * continuous MS
 * continuous ^short = "Check box (Yes/No). If the answer is Yes, it means that after achieving the goal, efforts do not stop, but are constantly required to maintain the result (for example, «maintain a diet» for life)."
@@ -40,14 +40,15 @@ Options: high, medium, low."
 
 * description MS
 * description ^short = "A text or code that tells you exactly what the goal is."
-* description from GoalDescriptionVS (required)
+* description from GoalDescriptionVS
 
 * subject MS
+* subject only Reference(UZCorePatient or Group or UZCoreOrganization)
 * subject ^short = "The person for whom this goal is set (Patient, Group of people or Organization)."
 
 * start[x] MS
 * start[x] ^short = "When the work on the goal begins."
-* start[x] from GoalStartEventVS (required)
+* start[x] from GoalStartEventVS
 
 * target MS
 * target ^short = "A container for specific numbers or conditions that we strive for.
@@ -55,7 +56,6 @@ Options: high, medium, low."
 + Rule: Goal.target.measure is required if Goal.target.detail is populated."
 * target.measure MS
 * target.measure ^short = "What parameter are we monitoring? (Parameter code, for example, «Body weight» or «Blood glucose»)."
-* target.measure from http://hl7.org/fhir/ValueSet/observation-codes (required)
 * target.detail[x] MS
 * target.detail[x] ^short = "The figure itself or the state that needs to be achieved."
 * target.due[x] MS
@@ -70,16 +70,19 @@ May be:
 * statusReason ^short = "The reason for the current status."
 
 * source MS
+* source only Reference(CareTeam or UZCorePatient or UZCorePractitioner or UZCorePractitionerRole or UZCoreRelatedPerson)
 * source ^short = "Who came up with/set this goal?"
 
 * addresses MS
+* addresses only Reference(UZCoreCondition or UZCoreClinicalCondition or UZCoreObservation or UZCoreSocioeconomicObservation or MedicationStatement or MedicationRequest or NutritionOrder or ServiceRequest or RiskAssessment or Procedure)
 * addresses ^short = "Medical problems for which the goal is set."
 
 * note MS
 * note ^short = "Comments about the goal."
 
 * outcome MS
-* outcome ^short = "What result was achieved regarding this goal? Codes or concept.text may be used."
+* outcome only CodeableReference(UZCoreObservation)
+* outcome ^short = "What result was achieved regarding this goal? Free-text in concept.text, SNOMED, or custom codes may be used."
 
 
 Instance: example-goal
