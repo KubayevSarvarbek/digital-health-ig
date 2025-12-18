@@ -27,7 +27,7 @@ Options: in progress, improving, deteriorating, unchanged, achieved, maintained,
 * category ^short = "Grouping goals by type.
 
 Examples: Treatment, Diet, Behavioral therapy, Nursing."
-* category from GoalCategoryVS
+* category from GoalCategoryVS (example)
 
 * continuous MS
 * continuous ^short = "Check box (Yes/No). If the answer is Yes, it means that after achieving the goal, efforts do not stop, but are constantly required to maintain the result (for example, «maintain a diet» for life)."
@@ -40,7 +40,7 @@ Options: high, medium, low."
 
 * description MS
 * description ^short = "A text or code that tells you exactly what the goal is."
-* description from GoalDescriptionVS
+* description from GoalDescriptionVS (example)
 
 * subject MS
 * subject only Reference(UZCorePatient or Group or UZCoreOrganization)
@@ -48,7 +48,7 @@ Options: high, medium, low."
 
 * start[x] MS
 * start[x] ^short = "When the work on the goal begins."
-* start[x] from GoalStartEventVS
+* start[x] from GoalStartEventVS (example)
 
 * target MS
 * target ^short = "A container for specific numbers or conditions that we strive for.
