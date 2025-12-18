@@ -7,4 +7,8 @@ Description: "Value Set for Goal Category translations"
 * ^extension[0].url = $valueset-supplement
 * ^extension[=].valueCanonical = Canonical(GoalCategoryCS)
 
-* include codes from system $goal-category
+* $goal-category#dietary "Dietary"
+* $goal-category#safety "Safety"
+* $goal-category#behavioral "Behavioral"
+* $goal-category#nursing "Nursing"
+* $goal-category#physiotherapy "Physiotherapy"

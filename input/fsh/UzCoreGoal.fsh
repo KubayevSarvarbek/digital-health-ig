@@ -1,8 +1,8 @@
 Profile: UZCoreGoal
 Parent: Goal
-Id: uz-core-goal 
+Id: uz-core-goal
 Title: "UZ Core Goal"
-Description: "Uzbekistan Core Goal profile, used for a patient, group or organization care,for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc."
+Description: "Uzbekistan Core Goal profile, used for a patient, group or organization care. For example: weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc."
 * ^experimental = true
 * ^status = #active
 * ^date = "2025-08-01"
